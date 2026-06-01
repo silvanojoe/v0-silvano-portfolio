@@ -9,7 +9,8 @@ import {
   Linkedin,
   Send,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Download
 } from 'lucide-react'
 
 export function ContactSection() {
@@ -120,6 +121,21 @@ export function ContactSection() {
                   <p className="font-medium text-foreground">linkedin.com/in/silvano-a-b596a5a2</p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-muted-foreground ml-auto group-hover:text-primary transition-colors" />
+              </a>
+
+              <a 
+                href="/cv/Silvano-Awino-CV.pdf"
+                download
+                className="flex items-center gap-4 p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 hover:border-emerald-400 transition-colors group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                  <Download className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground">Resume</p>
+                  <p className="font-medium text-foreground">Download CV (PDF)</p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-muted-foreground ml-auto group-hover:text-emerald-600 transition-colors" />
               </a>
             </div>
           </motion.div>
