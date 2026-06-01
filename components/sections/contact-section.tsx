@@ -107,7 +107,7 @@ export function ContactSection() {
               </div>
 
               <a 
-                href="https://linkedin.com/in/silvano-awino"
+                href="https://linkedin.com/in/silvano-awino-b596a5a2/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group"
@@ -117,7 +117,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <p className="font-medium text-foreground">linkedin.com/in/silvano-awino</p>
+                  <p className="font-medium text-foreground">linkedin.com/in/silvano-awino-b596a5a2</p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-muted-foreground ml-auto group-hover:text-primary transition-colors" />
               </a>
