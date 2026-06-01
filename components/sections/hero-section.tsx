@@ -130,7 +130,7 @@ export function HeroSection() {
                 Contact Me
               </Link>
               <Link
-                href="https://www.linkedin.com/in/silvano-awino-b596a5a2/"
+                href="https://www.linkedin.com/in/silvano-a-b596a5a2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20"
