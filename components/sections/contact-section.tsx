@@ -107,7 +107,7 @@ export function ContactSection() {
               </div>
 
               <a 
-                href="https://linkedin.com/in/silvano-awino-b596a5a2/"
+                href="https://www.linkedin.com/in/silvano-awino-b596a5a2/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group"

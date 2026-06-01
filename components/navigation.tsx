@@ -96,7 +96,7 @@ export function Navigation() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
-                href="https://linkedin.com/in/silvano-awino-b596a5a2/"
+                href="https://www.linkedin.com/in/silvano-awino-b596a5a2/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
@@ -157,7 +157,7 @@ export function Navigation() {
                 ))}
                 <div className="pt-4 border-t border-border flex items-center gap-3">
                   <Link
-                    href="https://linkedin.com/in/silvano-awino-b596a5a2/"
+                    href="https://www.linkedin.com/in/silvano-awino-b596a5a2/"
                     target="_blank"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
                   >
