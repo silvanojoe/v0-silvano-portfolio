@@ -96,7 +96,7 @@ export function Navigation() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-3">
               <Link
-                href="https://linkedin.com/in/silvano-awino"
+                href="https://www.linkedin.com/in/silvano-a-b596a5a2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
@@ -109,6 +109,14 @@ export function Navigation() {
               >
                 <Mail className="w-5 h-5" />
               </Link>
+              <a
+                href="/cv/Silvano-Awino-CV.pdf"
+                download
+                className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-foreground font-medium hover:bg-muted transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
               <Link
                 href="#contact"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
@@ -155,22 +163,32 @@ export function Navigation() {
                     {link.label}
                   </Link>
                 ))}
-                <div className="pt-4 border-t border-border flex items-center gap-3">
-                  <Link
-                    href="https://linkedin.com/in/silvano-awino"
-                    target="_blank"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
+                <div className="pt-4 border-t border-border flex flex-col gap-3">
+                  <div className="flex items-center gap-3">
+                    <Link
+                      href="https://www.linkedin.com/in/silvano-a-b596a5a2"
+                      target="_blank"
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                      LinkedIn
+                    </Link>
+                    <Link
+                      href="#contact"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium"
+                    >
+                      Contact
+                    </Link>
+                  </div>
+                  <a
+                    href="/cv/Silvano-Awino-CV.pdf"
+                    download
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-700 transition-colors"
                   >
-                    <Linkedin className="w-4 h-4" />
-                    LinkedIn
-                  </Link>
-                  <Link
-                    href="#contact"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium"
-                  >
-                    Contact
-                  </Link>
+                    <Download className="w-4 h-4" />
+                    Download CV
+                  </a>
                 </div>
               </nav>
             </div>

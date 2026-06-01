@@ -44,7 +44,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a 
-                href="https://linkedin.com/in/silvano-awino"
+                href="https://www.linkedin.com/in/silvano-a-b596a5a2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-primary transition-colors"

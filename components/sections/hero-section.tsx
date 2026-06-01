@@ -130,13 +130,21 @@ export function HeroSection() {
                 Contact Me
               </Link>
               <Link
-                href="https://linkedin.com/in/silvano-awino"
+                href="https://www.linkedin.com/in/silvano-a-b596a5a2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20"
               >
                 <Linkedin className="w-5 h-5" />
               </Link>
+              <a
+                href="/cv/Silvano-Awino-CV.pdf"
+                download
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-600/25"
+              >
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
             </motion.div>
 
             {/* Quick Stats */}
