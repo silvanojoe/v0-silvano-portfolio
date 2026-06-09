@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabaseClient";
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState, FormEvent } from 'react'
