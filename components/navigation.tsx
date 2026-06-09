@@ -9,7 +9,7 @@ import {
   Menu, 
   X, 
   Mail, 
-  Linkedin, 
+  ExternalLink, 
   Download,
   ChevronRight
 } from 'lucide-react'
@@ -101,7 +101,7 @@ export function Navigation() {
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
               >
-                <Linkedin className="w-5 h-5" />
+                <ExternalLink className="w-5 h-5" />
               </Link>
               <Link
                 href="mailto:silvanoawino@yahoo.com"
@@ -161,7 +161,7 @@ export function Navigation() {
                     target="_blank"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg border border-border text-foreground hover:bg-muted transition-colors"
                   >
-                    <Linkedin className="w-4 h-4" />
+                    <ExternalLink className="w-4 h-4" />
                     LinkedIn
                   </Link>
                   <Link

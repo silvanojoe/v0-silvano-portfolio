@@ -8,7 +8,7 @@ import {
   MapPin, 
   Mail, 
   Phone, 
-  Linkedin, 
+  ExternalLink, 
   Award,
   ArrowRight,
   Download,
@@ -135,7 +135,7 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20"
               >
-                <Linkedin className="w-5 h-5" />
+                <ExternalLink className="w-5 h-5" />
               </Link>
             </motion.div>
 

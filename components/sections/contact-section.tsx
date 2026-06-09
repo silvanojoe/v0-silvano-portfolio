@@ -1,50 +1,79 @@
-import { supabase } from "@/lib/supabaseClient";
-console.log("CONTACT SECTION LOADED");
 'use client'
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef, useState, FormEvent } from 'react'
 import { 
   Mail, 
   Phone, 
   MapPin, 
-  Linkedin,
+  ExternalLink,
   Send,
   CheckCircle,
   ArrowRight
 } from 'lucide-react'
+import { supabase } from "@/lib/supabase"
+
+interface FormData {
+  name: string
+  email: string
+  company: string
+  subject: string
+  message: string
+}
 
 export function ContactSection() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle')
-<form onSubmit={handleSubmit}>
- const handleSubmit =  (e?: any) => {
-  e.preventDefault();
-  setFormState("submitting");
+  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    company: '',
+    subject: '',
+    message: '',
+  })
 
-  console.log("FORM SUBMITTED"); // TEST 1
-
-  const { data, error } = await supabase.from("contacts").insert([
-    {
-      name: form.name,
-      email: form.email,
-      company: form.company,
-      subject: form.subject,
-      message: form.message,
-      status: "new",
-    },
-  ]);
-
-  console.log("SUPABASE RESPONSE:", { data, error }); // TEST 2
-
-  if (error) {
-    console.log("SUPABASE ERROR:", error);
-    setFormState("error");
-    return;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }))
   }
 
-  setFormState("success");
-};
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormState("submitting")
+
+    console.log("FORM SUBMITTED") // TEST 1
+
+    const { data, error } = await supabase.from("contacts").insert([
+      {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        subject: formData.subject,
+        message: formData.message,
+        status: "new",
+      },
+    ])
+
+    console.log("SUPABASE RESPONSE:", { data, error }) // TEST 2
+
+    if (error) {
+      console.log("SUPABASE ERROR:", error)
+      setFormState("error")
+      return
+    }
+
+    setFormState("success")
+    setFormData({
+      name: '',
+      email: '',
+      company: '',
+      subject: '',
+      message: '',
+    })
+  }
 
   return (
     <section 
@@ -133,7 +162,7 @@ export function ContactSection() {
                 className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-colors group"
               >
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                  <Linkedin className="w-5 h-5" />
+                  <ExternalLink className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">LinkedIn</p>
@@ -171,17 +200,6 @@ export function ContactSection() {
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-
-  <input />
-  <input />
-  <select />
-  <textarea />
-
-  <button type="submit">
-    Send Message
-  </button>
-
-</form>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -191,6 +209,8 @@ export function ContactSection() {
                         type="text"
                         id="name"
                         name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                         placeholder="Your name"
@@ -204,6 +224,8 @@ export function ContactSection() {
                         type="email"
                         id="email"
                         name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         required
                         className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                         placeholder="your@email.com"
@@ -219,6 +241,8 @@ export function ContactSection() {
                       type="text"
                       id="company"
                       name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                       placeholder="Your company"
                     />
@@ -231,6 +255,8 @@ export function ContactSection() {
                     <select
                       id="subject"
                       name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors"
                     >
@@ -249,6 +275,8 @@ export function ContactSection() {
                     <textarea
                       id="message"
                       name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       rows={4}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors resize-none"

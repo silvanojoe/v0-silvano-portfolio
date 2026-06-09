@@ -6,7 +6,7 @@ import {
   Mail, 
   Phone, 
   MapPin, 
-  Linkedin,
+  ExternalLink,
   Heart
 } from 'lucide-react'
 
@@ -49,7 +49,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-white/10 hover:bg-primary transition-colors"
               >
-                <Linkedin className="w-5 h-5" />
+                <ExternalLink className="w-5 h-5" />
               </a>
               <a 
                 href="mailto:silvanoawino@yahoo.com"
