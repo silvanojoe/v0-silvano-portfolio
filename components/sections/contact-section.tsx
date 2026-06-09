@@ -17,11 +17,13 @@ export function ContactSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setFormState("submitting");
 
-  const { error } = await supabase.from("contacts").insert([
+  console.log("FORM SUBMITTED"); // TEST 1
+
+  const { data, error } = await supabase.from("contacts").insert([
     {
       name: form.name,
       email: form.email,
@@ -32,24 +34,16 @@ export function ContactSection() {
     },
   ]);
 
+  console.log("SUPABASE RESPONSE:", { data, error }); // TEST 2
+
   if (error) {
-    console.log(error);
+    console.log("SUPABASE ERROR:", error);
     setFormState("error");
     return;
   }
 
   setFormState("success");
-
-  // optional: reset form
-  setForm({
-    name: "",
-    email: "",
-    company: "",
-    subject: "",
-    message: "",
-  });
 };
-  }
 
   return (
     <section 
