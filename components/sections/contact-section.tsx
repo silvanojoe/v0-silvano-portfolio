@@ -40,11 +40,13 @@ export function ContactSection() {
     }))
   }
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setFormState("submitting")
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    console.log("FORM SUBMITTED") // TEST 1
+  console.log("🔥 HANDLE SUBMIT TRIGGERED");
+
+  alert("Submit triggered");
+};
 
     const { data, error } = await supabase.from("contacts").insert([
       {
