@@ -1,5 +1,5 @@
+import { supabase } from "@/lib/supabaseClient";
 'use client'
-
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { 
@@ -17,13 +17,38 @@ export function ContactSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle')
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setFormState('submitting')
-    // Simulate form submission
-    setTimeout(() => {
-      setFormState('success')
-    }, 1500)
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setFormState("submitting");
+
+  const { error } = await supabase.from("contacts").insert([
+    {
+      name: form.name,
+      email: form.email,
+      company: form.company,
+      subject: form.subject,
+      message: form.message,
+      status: "new",
+    },
+  ]);
+
+  if (error) {
+    console.log(error);
+    setFormState("error");
+    return;
+  }
+
+  setFormState("success");
+
+  // optional: reset form
+  setForm({
+    name: "",
+    email: "",
+    company: "",
+    subject: "",
+    message: "",
+  });
+};
   }
 
   return (
