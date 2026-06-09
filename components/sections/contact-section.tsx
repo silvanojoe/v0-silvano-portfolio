@@ -1,4 +1,5 @@
 import { supabase } from "@/lib/supabaseClient";
+console.log("CONTACT SECTION LOADED");
 'use client'
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
