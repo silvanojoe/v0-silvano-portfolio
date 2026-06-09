@@ -17,8 +17,8 @@ export function ContactSection() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle')
-
- const handleSubmit = async (e: React.FormEvent) => {
+<form onSubmit={handleSubmit}>
+ const handleSubmit =  (e?: any) => {
   e.preventDefault();
   setFormState("submitting");
 
@@ -170,7 +170,18 @@ export function ContactSection() {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-4">
+
+  <input />
+  <input />
+  <select />
+  <textarea />
+
+  <button type="submit">
+    Send Message
+  </button>
+
+</form>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
